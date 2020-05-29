@@ -12,7 +12,7 @@ BST<std::string> makeTree(char* filename)
     ifstream f;
     BST<std::string>BS;
 	ifstream file(filename);
-	string s="",tmp="";
+	string str="",tmp="";
     char a;
     while (!file.eof()) 
     {
@@ -23,13 +23,13 @@ BST<std::string> makeTree(char* filename)
         {
             while(str[i]!=' ')
             {
-                if('A'<=str[i]<='Z')
+                if('A'<=str[i]&&str[i]<='Z')
                 {
                     if(isupper(str[i]))
                     a=tolower(str[i]);
                     tmp+=a;
                 }
-                else if ('a'<=str[i]<='z') tmp+=str[i];
+                else if ('a'<=str[i]&&str[i]<='z') tmp+=str[i];
                 else
                 {
                     i++;
