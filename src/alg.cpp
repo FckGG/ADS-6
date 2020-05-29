@@ -11,7 +11,8 @@ BST<std::string> makeTree(char* filename)
 {
     ifstream f;
     BST<std::string>BS;
-	ifstream file(filename);
+	FILE* f;
+	if (fopen_s(&f, filename, "r"))
 	string s="",tmp="";
     char a;
     while (!file.eof()) 
