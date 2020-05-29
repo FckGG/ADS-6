@@ -3,134 +3,43 @@
 #include  <fstream>
 #include  <locale>
 #include  <cstdlib>
+#include<string.h>
+#include<ctype.h>
+using namespace std;
 
-
-template<typename T>
-class BST
+BST<std::string> makeTree(char* filename)
 {
-public:
-    struct Node
+    ifstream f;
+    BST<std::string>BS;
+	ifstream f;
+	f.open(filename);
+	string s="",tmp="";
+    char a;
+    while (!file.eof()) 
     {
-        T value;
-        int count;
-        Node *left;
-        Node *right;
-    };
-private:
-    Node* root;
-    Node* addNode(Node *, T);
-    void  printTree(Node*);
-    int   depthTree(Node*);
-    int   searchNode(Node*,T);
-    void  delTree(Node*);
-    Node* delNode(Node*,int);
-public:
-    BST();
-    ~BST();
-    void add(T);
-    void print();
-    int  depth();
-    int  search(T);
-    void clear();
-    void remove(int);
-};
-
-template<typename T>
-typename BST<T>::Node* BST<T>::addNode(Node *root, T value) {
-   if(root==nullptr) {
-      root=new Node;
-      root->value=value;
-      root->count=1;
-      root->left=root->right=nullptr;
-   }
-   else if(root->value>value) {
-     root->left=addNode(root->left,value);
-   }
-   else if(root->value<value) {
-     root->right=addNode(root->right,value);
-   }
-   else
-    root->count++;
-   return root;
+        string str;
+        getline(file, str);
+        int i=0;
+        while(str[i]!='\0')
+        {
+            while(str[i]!=' ')
+            {
+                if('A'<=str[i]<='Z')
+                {
+                    if(isupper(str[i]))
+                    a=tolower(str[i]);
+                    tmp+=a;
+                }
+                else if ('a'<=str[i]<='z') tmp+=str[i];
+                else
+                {
+                    i++;
+                    continue;
+                }
+                i++;
+            }
+            BS.add(tmp);
+        }
+    }
 }
 
-template<typename T>
-void BST<T>::add(T value) {
-   root=addNode(root,value);
-}
-
-template<typename T>
-void BST<T>::printTree(Node* root) {
-    if(root==nullptr)
-        return;
-    printTree(root->left);
-    for(int i=0;i<root->count;i++)
-        std::cout<<root->value<<" ";
-    printTree(root->right);
-}
-
-template<typename T>
-void BST<T>::print() {
-   printTree(root);
-}
-
-template<typename T>
-int BST<T>::depthTree(Node* root) {
-   if(root==nullptr)
-     return 0;
-   if(root->left==nullptr && root->right==nullptr)
-     return 0;
-   int left=depthTree(root->left);
-   int right=depthTree(root->right);
-   if(left>right)
-     return left+1;
-   else
-     return right+1;
-}
-
-template<typename T>
-int BST<T>::depth() {
-    return depthTree(root);
-}
-
-template<typename T>
-int BST<T>::searchNode(Node* root,T value)
-{
-   if(root==nullptr)
-     return 0;
-   else if(root->value>value)
-     return searchNode(root->left,value);
-   else if(root->value<value)
-     return searchNode(root->right,value);
-   else
-     return root->count;
-}
-
-template<typename T>
-int BST<T>::search(T value)
-{
-    return searchNode(root,value);
-}
-
-template<typename T>
-void  BST<T>::delTree(Node* root)
-{
-   if(root==nullptr)
-       return;
-   else
-   {
-       delTree(root->left);
-       delTree(root->right);
-       delete root;
-   }
-}
-
-template<typename T>
-void BST<T>::clear()
-{
-    if(root)
-    {
-        delTree(root);
-        root=nullptr;
-    }   
-}
