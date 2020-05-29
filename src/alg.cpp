@@ -16,12 +16,11 @@ BST<std::string> makeTree(char* filename)
     char a;
     while (!file.eof()) 
     {
-        string str;
-        getline(file, str);
+        file.get(str);
         int i=0;
-        while(str[i]!='\0')
+        while(str[i]!='\0'&&!file.eof())
         {
-            while(str[i]!=' ')
+            while(str[i]!=' '&&!file.eof())
             {
                 if('A'<=str[i]&&str[i]<='Z')
                 {
