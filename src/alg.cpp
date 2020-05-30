@@ -16,7 +16,6 @@ BST<std::string> makeTree(char* filename)
     int i = 0;
         while (file >> str)
         {
-            getline(file, str);
             while (str[i] != '\0' && !file.eof())
             {
                 while (str[i] != ' ' && !file.eof())
