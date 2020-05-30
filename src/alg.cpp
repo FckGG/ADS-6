@@ -12,31 +12,22 @@ BST<string> makeTree(char* filename)
     BST<string> tree1;
     ifstream file(filename);
     string str,tmp;
-	int i=0;
     while (!file.eof()) 
     {
         tmp.clear();
 	    file >> str;
-            while (str[i] != '\0' && !file.eof())
+            for(int j=0;j<str.size();j++)
             {
-                while (str[i] != ' ' && !file.eof())
-                {
-                    if ('A' <= str[i] && str[i] <= 'Z')
-                    {
-                        if (isupper(str[i]))
-                            str[i] = tolower(str[i]);
+                    if (('A' <= str[i] && str[i] <= 'Z')||(str[i]<='z'&&'a'<=str[i]))
+		    {
+                        str[i] = tolower(str[i]);
                         tmp += str[i];
                     }
-                    else if ('a' <= str[i] && str[i] <= 'z') tmp += str[i];
-                    else
+                  if(str[i]==' ' && !tmp.empty())
                     {
-                        i++;
-                        continue;
+                        tree1.add(tmp);
+			  tmp.clear();
                     }
-                    i++;
-                }
-                if(!tmp.empty()) tree1.add(tmp);
-                tmp.clear();
             }
         }
 	return tree1;
