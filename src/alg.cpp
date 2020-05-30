@@ -14,9 +14,9 @@ BST<std::string> makeTree(char* filename)
 	ifstream file(filename);
 	string str="",tmp="";
     char a;
-    while (!file.eof()) 
+    while (getline(file,str)) 
     {
-        getline(file,str);
+       // getline(file,str);
         int i=0;
         while(str[i]!='\0'&&!file.eof())
         {
