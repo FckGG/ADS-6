@@ -9,35 +9,35 @@ using namespace std;
 
 BST<std::string> makeTree(char* filename)
 {
-	BST<std::string>BS;
-	ifstream file;
-	file.open(filename);
-	string str="",tmp="";
-	int i = 0
-	while (file >> str)
-	{
-	 getline(file,str);
-        while(str[i]!='\0'&&!file.eof())
+    BST<std::string>BS;
+    ifstream file;
+    file.open(filename);
+    string str = "", tmp = "";
+    int i = 0;
+        while (file >> str)
         {
-            while(str[i]!=' '&&!file.eof())
+            getline(file, str);
+            while (str[i] != '\0' && !file.eof())
             {
-                if('A'<=str[i]&&str[i]<='Z')
+                while (str[i] != ' ' && !file.eof())
                 {
-                    if(isupper(str[i]))
-                    str[i]=tolower(str[i]);
-                    tmp+=str[i];
-                }
-                else if ('a'<=str[i]&&str[i]<='z') tmp+=str[i];
-                else
-                {
+                    if ('A' <= str[i] && str[i] <= 'Z')
+                    {
+                        if (isupper(str[i]))
+                            str[i] = tolower(str[i]);
+                        tmp += str[i];
+                    }
+                    else if ('a' <= str[i] && str[i] <= 'z') tmp += str[i];
+                    else
+                    {
+                        i++;
+                        continue;
+                    }
                     i++;
-                    continue;
                 }
-                i++;
+                BS.add(tmp);
+                tmp = "";
             }
-            BS.add(tmp);
-		tmp='';
         }
-    }
+	return BS;
 }
-
