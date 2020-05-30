@@ -7,15 +7,15 @@
 #include<ctype.h>
 using namespace std;
 
-BST<std::string> makeTree(char* filename)
+BST<string> makeTree(char* filename)
 {
-    BST<std::string>BS;
-    ifstream file;
-    file.open(filename);
-    string str = "", tmp = "";
-    int i = 0;
-        while (file >> str)
-        {
+    BST<string> tree;
+    ifstream file(filename);
+    string str,word;
+    while (!file.eof()) 
+    {
+        word.clear();
+	    file >> str;
             while (str[i] != '\0' && !file.eof())
             {
                 while (str[i] != ' ' && !file.eof())
