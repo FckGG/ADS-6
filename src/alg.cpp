@@ -23,7 +23,7 @@ BST<string> makeTree(char* filename)
                     str[j] = (char)tolower(str[j]);
                     tmp += str[j];
                 }
-                else if(!tmp.empty())
+                else if(str[j]==' '&&!tmp.empty())
                   {
                         tree1.add(tmp);
 			            tmp.clear();
