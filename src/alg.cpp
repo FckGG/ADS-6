@@ -36,7 +36,7 @@ BST<string> makeTree(char* filename)
                     i++;
                 }
                 if(!tmp.empty()) tree1.add(tmp);
-                tmp.clear()
+                tmp.clear();
             }
         }
 	return tree1;
