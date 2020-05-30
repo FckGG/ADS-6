@@ -11,10 +11,11 @@ BST<string> makeTree(char* filename)
 {
     BST<string> tree;
     ifstream file(filename);
-    string str,word;
+    string str,tmp;
+	int i=0;
     while (!file.eof()) 
     {
-        word.clear();
+        tmp.clear();
 	    file >> str;
             while (str[i] != '\0' && !file.eof())
             {
