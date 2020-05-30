@@ -35,9 +35,9 @@ BST<string> makeTree(char* filename)
                     }
                     i++;
                 }
-                BS.add(tmp);
+                tree.add(tmp);
                 tmp = "";
             }
         }
-	return BS;
+	return tree;
 }
