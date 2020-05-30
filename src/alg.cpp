@@ -7,17 +7,17 @@
 #include<ctype.h>
 using namespace std;
 
-BST<std::string> makeTree(const char* filename)
+BST<std::string> makeTree(char* filename)
 {
-    ifstream f;
-    BST<std::string>BS;
-	ifstream file(filename);
-	string str="",tmp="";
-    char a;
-    while (getline(file,str)) 
-    {
+	BST<std::string>BS;
+	ifstream f;
+	f.open(filename);
+	string s="",tmp="";
+	int i = 0
+	    char a;
+	while (f >> s)
+	{
        // getline(file,str);
-        int i=0;
         while(str[i]!='\0'&&!file.eof())
         {
             while(str[i]!=' '&&!file.eof())
