@@ -10,12 +10,12 @@ using namespace std;
 BST<std::string> makeTree(char* filename)
 {
 	BST<std::string>BS;
-	ifstream f;
-	f.open(filename);
+	ifstream file;
+	file.open(filename);
 	string str="",tmp="";
 	int i = 0
 	    char a;
-	while (f >> s)
+	while (file >> str)
 	{
 	 getline(file,str);
         while(str[i]!='\0'&&!file.eof())
