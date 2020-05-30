@@ -12,12 +12,12 @@ BST<std::string> makeTree(char* filename)
 	BST<std::string>BS;
 	ifstream f;
 	f.open(filename);
-	string s="",tmp="";
+	string str="",tmp="";
 	int i = 0
 	    char a;
 	while (f >> s)
 	{
-       // getline(file,str);
+	 getline(file,str);
         while(str[i]!='\0'&&!file.eof())
         {
             while(str[i]!=' '&&!file.eof())
