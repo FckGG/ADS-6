@@ -9,7 +9,7 @@ using namespace std;
 
 BST<string> makeTree(char* filename)
 {
-    BST<string> tree;
+    BST<string> tree1;
     ifstream file(filename);
     string str,tmp;
 	int i=0;
@@ -35,9 +35,9 @@ BST<string> makeTree(char* filename)
                     }
                     i++;
                 }
-                tree.add(tmp);
+                tree1.add(tmp);
                 tmp = "";
             }
         }
-	return tree;
+	return tree1;
 }
