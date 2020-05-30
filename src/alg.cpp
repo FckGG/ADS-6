@@ -18,10 +18,10 @@ BST<string> makeTree(char* filename)
 	    file >> str;
             for(int j=0;j<str.size();j++)
             {
-                    if (('A' <= str[i] && str[i] <= 'Z')||(str[i]<='z'&&'a'<=str[i]))
+                    if (('A' <= str[j] && str[j] <= 'Z')||(str[j]<='z'&&'a'<=str[j]))
 		    {
-                        str[i] = tolower(str[i]);
-                        tmp += str[i];
+                        str[j] = tolower(str[j]);
+                        tmp += str[j];
                     }
                   if(str[i]==' ' && !tmp.empty())
                     {
