@@ -7,7 +7,7 @@
 #include<ctype.h>
 using namespace std;
 
-BST<std::string> makeTree(char* filename)
+BST<std::string> makeTree(const char* filename)
 {
     ifstream f;
     BST<std::string>BS;
