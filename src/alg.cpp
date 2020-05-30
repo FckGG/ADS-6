@@ -14,7 +14,6 @@ BST<std::string> makeTree(char* filename)
 	file.open(filename);
 	string str="",tmp="";
 	int i = 0
-	    char a;
 	while (file >> str)
 	{
 	 getline(file,str);
@@ -25,8 +24,8 @@ BST<std::string> makeTree(char* filename)
                 if('A'<=str[i]&&str[i]<='Z')
                 {
                     if(isupper(str[i]))
-                    a=tolower(str[i]);
-                    tmp+=a;
+                    str[i]=tolower(str[i]);
+                    tmp+=str[i];
                 }
                 else if ('a'<=str[i]&&str[i]<='z') tmp+=str[i];
                 else
@@ -37,6 +36,7 @@ BST<std::string> makeTree(char* filename)
                 i++;
             }
             BS.add(tmp);
+		tmp='';
         }
     }
 }
